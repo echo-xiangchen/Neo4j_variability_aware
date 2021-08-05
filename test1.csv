@@ -1,0 +1,11 @@
+!Vex
+x
+y
+x&&y
+TRUE
+z
+FALSE
+z
+!x
+TRUE
+a&&b
