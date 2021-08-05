@@ -1,6 +1,6 @@
 package expr.composite;
 
-import expr.visitor.Visitor;
+import expr.visitor.*;
 
 public class BoolTrue extends Const {
 	public BoolTrue(String name) {

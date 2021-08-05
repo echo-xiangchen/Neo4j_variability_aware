@@ -13,4 +13,6 @@ public interface Visitor {
 	void visitBoolFalse(BoolFalse boolFalse);
 
 	void visitBoolTrue(BoolTrue boolTrue);
+
+	void visitBoolVar(BoolVar boolVar);
 }

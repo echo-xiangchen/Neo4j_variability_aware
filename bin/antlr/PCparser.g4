@@ -4,13 +4,13 @@ grammar PCparser;
 	package antlr;
 }
 
-stat : boolExpr ;
+stat : boolExpr* ;
 
 boolExpr 
 	: NOT boolExpr									# Not
 	| boolExpr AND boolExpr							# And
 	| boolExpr OR boolExpr							# Or
-	//| boolExpr IFF boolExpr						# Iff
+//	| boolExpr IFF boolExpr							# Iff
 	| ID 											# BoolVar
 	| TRUE 											# BoolTrue
 	| FALSE 										# BoolFalse
@@ -41,13 +41,13 @@ boolExpr
 
 
 // boolean constant keywords
-TRUE : 'true';
-FALSE : 'false';
+TRUE : 'true' | 'TRUE' | 'True';
+FALSE : 'false' | 'FALSE' | 'False';
 
 // logical expr keywords
-NOT : '!';
-AND : '&&';
-OR : '||';
+NOT : '!' | 'not';
+AND : '&&' | 'and' | '/\\';
+OR : '||' | 'or' | '\\/';
 // IMPLIES : '=>';
 // IFF : '<=>';
 
@@ -68,7 +68,7 @@ OR : '||';
 COMMENT : '--' ~[\r\n]* -> skip;
 WS  :   [ \t\n]+ -> skip ;
 
-ID : [a-z][a-zA-Z0-9_]*;
+ID : [a-zA-Z0-9_]+;
 
 // number lexer rules
 // INTNUM : '0'|'-'?[1-9][0-9]*;
